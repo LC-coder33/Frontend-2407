@@ -16,12 +16,26 @@
 
         /* selected link */
         a:active {color: blue;}
+        /* 밑줄을 없애고 싶을 때 */
+        a { text-decoration:none; }
+
+        div > a:link, div > a:visited 
+        {background-color: #f44336; 
+            color: white; padding: 14px 25px;
+        text-align: center; text-decoration: none; 
+        display: inline-block; }
+        
+        div > a:hover, div > a:active { background-color: red; }
     </style>
 
 </head>
 <body style="margin: 40px;">
     <h2>Link style</h2>
-    <a href="https://www.naver.com">Link Style</a>
+    <a href="https://www.google.com">Link Style</a>
+    <h2>Link button</h2>
+    <div>
+        <a href="https://www.daum.net" target="_blank">이것은 링크임</a>
+    </div>
 
 </body>
 </html>
