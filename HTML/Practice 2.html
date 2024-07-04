@@ -6,18 +6,20 @@
     <title>회원 가입</title>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
     <style>
+        a:visited {color: black;}
         table {border:1px solid black; background-color: beige; border-radius: 5px;}
         * { font-family: 'Noto Sans KR', sans-serif; }
         td, input {padding: 5px;}
         .label { text-align:center;}
-        .container { width: 40%; margin: auto; margin-top: 40px;}
-        textarea {width: 68%;}
+        .container { width: 35%; margin: auto; margin-top: 40px;}
+        textarea {width: 79%;}
     </style>
 </head>
 <body>
     <img src="https://picsum.photos/1000/120" alt="배경화면" width="100%">
     <div class="container">
-        <h1 class="label">회원가입</h1>
+        <h1 class="label" style="background-color:azure; border: solid 1px black; 
+        border-radius:3px;">회원가입</h1>
     <form action="#" method="post">
         <table style="text-align: center; width: 100%; padding: 10px 0px 10px 0px;">
             <tr>
@@ -64,8 +66,8 @@
                 <td>
                     <textarea name="intro" id="intro" rows="10" 
                     style="border: 2px solid darkgray; border-radius: 7px; 
-                    background-color: lightgray;" placeholder="500자 이내로 쓰세요"
-                    maxlength="500"></textarea>
+                    background-color: lightgray;" placeholder="간단히 150자 이내로 쓰세요"
+                    maxlength="150"></textarea>
                 </td>
             </tr>
             <tr>
@@ -76,6 +78,9 @@
             </tr>
 </table>
 </form>
+<div style="text-align: right;">
+<a href="https://www.naver.com" style="text-decoration: none;">사이트 방문</a>
+</div>
 <p style="text-align: right;">* 는 필수 항목입니다.</p>
 </div>
 
