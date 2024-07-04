@@ -5,78 +5,65 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>회원 가입</title>
     <style>
-        label, input, select {padding: 5px;}
+        td, input {padding: 3px;}
+        .label { text-align: center;}
+        .container { width: 50%; margin: auto; margin-top: 40px;}
     </style>
 </head>
-<body style="text-align: center; margin: 40px;">
-    <h1 style="font-size: 30px;">회원 가입</h1><br>
-    <table border="1" style="text-align: center;">
-    <form action="#" method="get">
-        <label for="UserID" style="font-weight: bold;">사용자 ID</label>
-        <input type="text" name="UserID" id="UserID" required placeholder="ID를 입력하세요"><br><br>
-        <label for="pwd" style="font-weight: bold;">패스워드</label>
-        <input type="password" name="password" id="pwd" required placeholder="비밀번호를 입력하세요"><br><br>
-        <label for="passwordcheck" style="font-weight: bold;">패스워드 확인</label>
-        <input type="password" name="passwordcheck" id="passwordcheck" required placeholder="비밀번호를 다시 입력하세요"><br><br>
-        <label for="uname" style="font-weight: bold;">이름</label>
-        <input type="text" name="uname" id="uname" required placeholder="이름을 입력하세요"><br><br>
-
-
-        <label for="gender" style="font-weight: bold;">성별</label>&nbsp;&nbsp;
-        <input type="radio" name="gender" id="male" value="남" checked>
-        <label for="male">남</label>
-        <input type="radio" name="gender" id="female" value="여">
-        <label for="female">여</label><br><br>
-
-
-        <label for="email" style="font-weight: bold;">이메일</label>
-        <input type="email" name="email" id="email" required placeholder="이메일을 입력하세요"><br><br>
-        <label for="phone" style="font-weight: bold;">전화번호</label>
-        <input type="number" name="phone" id="phone" required><br><br>
-
-    <label for="intro" style="font-weight: bold;">자기 소개</label><br>
-    <textarea name="Intro" id="Intro" rows="10" cols="60"></textarea><br><br>
-
-        <input type="submit" value="제출"> &nbsp;&nbsp;
-        <input type="reset" value="취소"><br><hr><br><br>
-    </form>
+<body>
+    <img src="https://picsum.photos/1000/120" alt="배경화면" width="100%">
+    <div class="container">
+        <h1 class="label">회원가입</h1>
+    <form action="#" method="post">
+        <table>
+            <tr>
+             <td style="width: 40%;" class="label"><label for="uid">사용자 ID(*)</label></td>
+             <td style="width: 60%;"> <input type="text" name="UserID" id="uid" size="40"></td>
+            </tr>
+            <tr>
+                <td class="label"> <label for="pwd">패스워드(*)</label> </td>
+                <td> <input type="password" name="pwd" id="pwd" size="40"></td>
+            </tr>
+            <tr>
+                <td class="label"> <label for="pwd2">패스워드 확인(*)</label></td>
+                <td> <input type="password" name="pwd2" id="pwd2" size="40"></td>
+            </tr>
+            <tr>
+                <td class="label"> <label for="uname">이름(*)</label></td>
+                <td> <input type="text" name="uname" id="uname" size="40"></td>
+            </tr>
+            <tr>
+                <td class="label"><label for="gender">성별(*)</label></td>
+                <td class="label">
+                    <input type="radio" name="gender" id="male" value="male" checked>
+                    <label for="male">남</label>
+                    <input type="radio" name="gender" id="female" value="female" style="margin-left: 50px;">
+                    <label for="female">여</label>
+                </td>
+            </tr>
+            <tr>
+                <td class="label"><label for="email">이메일(*)</label></td>
+                <td><input type="email" name="email" id="email" size="40"></td>
+            </tr>
+            <tr>
+                <td class="label"><label for="tel">전화번호</label></td>
+                <td><input type="tel" name="tel" id="tel" size="40"></td>
+            </tr>
+            <tr>
+                <td class="label"><label for="intro">자기소개</label></td>
+                <td>
+                    <textarea name="intro" id="intro" rows="10" cols="42"></textarea>
+                </td>
+            </tr>
+            <tr>
+                <td class="label" colspan="2">
+                    <input type="submit" value="제출">
+                    <input type="reset" value="취소">
+                </td>
+            </tr>
 </table>
-    <table border="2" style="text-align: center; width: 100%;">
-        <tr>
-            <td style="width: 10%;">종목 인구수</td>
-            <td style="width: 22.5%;">미국</td>
-            <td style="width: 22.5%;">영국</td>
-            <td style="width: 22.5%;">프랑스</td>
-            <td style="width: 22.5%;">독일</td>
-        </tr>
-        <tr>
-            <td>축구</td>
-            <td>1100만명</td>
-            <td>900만명</td>
-            <td>800만명</td>
-            <td>900만명</td>
-        </tr>
-        <tr>
-            <td>야구</td>
-            <td colspan="2">측정불가</td>
-            <td>10만명</td>
-            <td>15만명</td>
-        </tr>
-        <tr>
-            <td>농구</td>
-            <td>2000만명</td>
-            <td rowspan="2">측정불가</td>
-            <td>100만명</td>
-            <td>200만명</td>
-        </tr>
-        <tr>
-            <td>배구</td>
-            <td>1000만명</td>
-            <td>200만명</td>
-            <td>300만명</td>
-        </tr>
+</form>
+<p style="text-align: right;">* 는 필수 항목입니다.</p>
 
-    </table>
-    
 </body>
 </html>
