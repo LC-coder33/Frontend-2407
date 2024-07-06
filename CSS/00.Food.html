@@ -4,8 +4,49 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Food</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gothic+A1&display=swap" rel="stylesheet">
+    <style>
+        * { box-sizing: border-box; }
+        
+        body { font-family: Gothic A1; }
+        
+        header { background-color:beige;
+          padding: 30px; text-align: center;  font-size: 35px; 
+          color:Black; border: black solid 3px; font-family: Gothic A1;}
+        
+        nav { float: left; width: 30%; height: 700px; /* only for demonstration, should be removed */
+          background-color:honeydew;
+          padding: 20px; border-left: black solid 3px; border-right: black solid 3px; border-bottom: black solid 3px;}
+
+        nav ul { list-style-type: none; padding: 0; }
+        
+        article { float: left; padding: 20px; width: 70%;  background-color:blanchedalmond; 
+            height: 700px; border-right: black solid 3px; border-bottom: black solid 3px;}
+        
+        section::after { content: ""; display: table; clear: both; }
+           
+         @media (max-width: 600px) { nav, article { width: 100%; height: auto; }
+        }
+        </style>
 </head>
 <body>
-    Food 내가 좋아하는 음식
+    <header>
+        <h2>내가 좋아하는 음식</h2>
+    </header>
+    <section>
+        <nav>
+          <ul>
+            <li style="text-align: center; font-size: 30px; color: black; margin-top: 125px;">장어구이</a></li>
+            <li style="text-align: center; font-size: 30px; color: black; margin-top: 300px;">빵</a></li>
+          </ul>
+        </nav>
+        <article>
+            <img src="./eel.webp" style="text-align:center ; margin-left: 150px; width: 50%;">
+            <img src="./breads.jpg" style="text-align: center; margin-left: 150px; width: 50%; height: 300px;">
+          </article>
+        </section>
+          
 </body>
 </html>
