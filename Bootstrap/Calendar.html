@@ -1,21 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Bootstrap 5 Example</title>
+  <title>Bootstrap 5 Calendar</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
+  <script src="https://kit.fontawesome.com/7c8cf3092b.js" crossorigin="anonymous"></script>
+  <style>
+    th { text-align:center; width:14.28%; }
+    td { height: 120px; }
+  </style>
   </div>
 </head>
 <body>
 <div class="container-fluid p-5">
   <div class="d-flex justify-content-between">
     <b><div style="margin-left: 35px; font-size: 20px;">스케쥴러</div></b>
-    <b><div>&lt;&lt;&nbsp&nbsp&lt;&nbsp 2024.07&nbsp&gt;&nbsp&nbsp&gt;&gt;</div></b>
+    <div>
+      <a href="#"><i class="fa-solid fa-angles-left"></i></a>
+      <a href="#"><i class="fa-solid fa-angles-left ms-2"></i></a>
+      <span class="mx-2">2024.07</span>
+      <a href="#"><i class="fa-solid fa-angles-right"></i></a>
+      <a href="#"><i class="fa-solid fa-angles-right ms-2"></i></a>
+    </div>
     <b><div><button class="text-bg-dark text-white" 
-    style="border-radius: 5px;">+ Anniversary</button></div></b>
+    style="border-radius: 5px; margin-right: 30px;">+ Anniversary</button></div></b>
   </div>
 </div>
 
@@ -23,64 +33,241 @@
   <div class="row">
     <div class="col">
       <table class="table table-bordered" style="border: 1px solid black;">
+        <tr class="table-secondary">
+          <th class="text-danger" style="text-align: center;">일</th>
+          <th style="text-align: center;">월</th>
+          <th style="text-align: center;">화</th>
+          <th style="text-align: center;">수</th>
+          <th style="text-align: center;">목</th>
+          <th style="text-align: center;">금</th>
+          <th style="color: blue;">토</th>
+        </tr>
         <tr>
-          <td style="color: red; text-align: center;">일</td>
-          <td style="text-align: center;">월</td>
-          <td style="text-align: center;">화</td>
-          <td style="text-align: center;">수</td>
-          <td style="text-align: center;">목</td>
-          <td style="text-align: center;">금</td>
-          <td style="color: blue;">토</td>
+          <td> <div class="d-flex justify-content-between">
+            <div class="text-danger" style="opacity: 0.5;">
+            <strong>30</strong></div>
+          <div></div>
         </div>
-        </tr>
-        <tr>
-          <td style="color: red; padding-bottom: 75px;">30</td>
-          <td>1</td>
-          <td>2</td>
-          <td>3</td>
-          <td>4</td>
-          <td>5</td>
-          <td style="color: blue;">6</td>
-        </tr>
-        </tr>
-          <td style="color: red; padding-bottom: 75px;">7</td>
-          <td style="background-color: rgba(127, 255, 212, 0.158);">8</td>
-          <td>9</td>
-          <td>10</td>
-          <td>11</td>
-          <td>12</td>
-          <td style="color: blue;">13</td>
-        </tr>
-        </tr>
-          <td style="color: red; padding-bottom: 75px;">14</td>
-          <td>15</td>
-          <td>16</td>
-          <td>17</td>
-          <td>18</td>
-          <td>19</td>
-          <td style="color: blue;">20</td>
-        </tr>
-        </tr>
-          <td style="color: red; padding-bottom: 75px;">21</td>
-          <td>22</td>
-          <td>23</td>
-          <td>24</td>
-          <td>25</td>
-          <td>26</td>
-          <td style="color: blue;">27</td>
-        </tr>
-        </tr>
-          <td style="color: red; padding-bottom: 75px;">28</td>
-          <td>29</td>
-          <td>30</td>
-          <td>31</td>
-          <td style="opacity: 0.4;">1</td>
-          <td style="opacity: 0.4;">2</td>
-          <td style="color: blue; opacity: 0.4;">3</td>
-        </tr>
-      </table>
+        </td>
+        <td> <div class="d-flex justify-content-between">
+          <div>
+          <strong>1</strong></div>
+        <div></div>
       </div>
+      </td>         
+      <td> <div class="d-flex justify-content-between">
+        <div>
+        <strong>2</strong></div>
+      <div></div>
     </div>
+    </td>          
+    <td> <div class="d-flex justify-content-between">
+      <div>
+      <strong>3</strong></div>
+    <div></div>
   </div>
+  </td>          
+  <td> <div class="d-flex justify-content-between">
+    <div>
+    <strong>4</strong></div>
+  <div></div>
+</div>
+</td>          
+<td> <div class="d-flex justify-content-between">
+  <div>
+  <strong>5</strong></div>
+<div></div>
+</div>
+</td>          
+<td> <div class="d-flex justify-content-between">
+  <div class="text-primary">
+  <strong>6</strong></div>
+<div>소서</div>
+</div>
+</td>
+</tr>
+
+<tr>
+  <td> <div class="d-flex justify-content-between">
+    <div class="text-danger">
+    <strong>7</strong></div>
+  <div></div>
+</div>
+</td>
+<td style="background-color: rgba(127, 255, 212, 0.185);"> <div class="d-flex justify-content-between">
+  <div>
+  <strong>8</strong></div>
+<div></div>
+</div>
+</td>         
+<td> <div class="d-flex justify-content-between">
+<div>
+<strong>9</strong></div>
+<div></div>
+</div>
+</td>          
+<td> <div class="d-flex justify-content-between">
+<div>
+<strong>10</strong></div>
+<div></div>
+</div>
+</td>          
+<td> <div class="d-flex justify-content-between">
+<div>
+<strong>11</strong></div>
+<div></div>
+</div>
+</td>          
+<td> <div class="d-flex justify-content-between">
+<div>
+<strong>12</strong></div>
+<div></div>
+</div>
+</td>          
+<td> <div class="d-flex justify-content-between">
+<div class="text-primary">
+<strong>13</strong></div>
+<div></div>
+</div>
+</td>
+</tr>
+
+
+<tr>
+  <td> <div class="d-flex justify-content-between">
+    <div class="text-danger">
+    <strong>14</strong></div>
+  <div></div>
+</div>
+</td>
+<td> <div class="d-flex justify-content-between">
+  <div>
+  <strong>15</strong></div>
+<div></div>
+</div>
+</td>         
+<td> <div class="d-flex justify-content-between">
+<div>
+<strong>16</strong></div>
+<div></div>
+</div>
+</td>          
+<td> <div class="d-flex justify-content-between">
+<div>
+<strong>17</strong></div>
+<div>제헌절</div>
+</div>
+</td>          
+<td> <div class="d-flex justify-content-between">
+<div>
+<strong>18</strong></div>
+<div></div>
+</div>
+</td>          
+<td> <div class="d-flex justify-content-between">
+<div>
+<strong>19</strong></div>
+<div></div>
+</div>
+</td>          
+<td> <div class="d-flex justify-content-between">
+<div class="text-primary">
+<strong>20</strong></div>
+<div></div>
+</div>
+</td>
+</tr>
+
+<tr>
+  <td> <div class="d-flex justify-content-between">
+    <div class="text-danger">
+    <strong>21</strong></div>
+  <div></div>
+</div>
+</td>
+<td> <div class="d-flex justify-content-between">
+  <div>
+  <strong>22</strong></div>
+<div>대서</div>
+</div>
+</td>         
+<td> <div class="d-flex justify-content-between">
+<div>
+<strong>23</strong></div>
+<div></div>
+</div>
+</td>          
+<td> <div class="d-flex justify-content-between">
+<div>
+<strong>24</strong></div>
+<div></div>
+</div>
+</td>          
+<td> <div class="d-flex justify-content-between">
+<div>
+<strong>25</strong></div>
+<div></div>
+</div>
+</td>          
+<td> <div class="d-flex justify-content-between">
+<div>
+<strong>26</strong></div>
+<div></div>
+</div>
+</td>          
+<td> <div class="d-flex justify-content-between">
+<div class="text-primary">
+<strong>27</strong></div>
+<div></div>
+</div>
+</td>
+</tr>
+
+
+<tr>
+  <td> <div class="d-flex justify-content-between">
+    <div class="text-danger">
+    <strong>28</strong></div>
+  <div></div>
+</div>
+</td>
+<td> <div class="d-flex justify-content-between">
+  <div>
+  <strong>29</strong></div>
+<div></div>
+</div>
+</td>         
+<td> <div class="d-flex justify-content-between">
+<div>
+<strong>30</strong></div>
+<div></div>
+</div>
+</td>          
+<td> <div class="d-flex justify-content-between">
+<div>
+<strong>31</strong></div>
+<div></div>
+</div>
+</td>          
+<td> <div class="d-flex justify-content-between">
+<div style="opacity: 0.5;">
+<strong>1</strong></div>
+<div></div>
+</div>
+</td>          
+<td> <div class="d-flex justify-content-between">
+<div style="opacity: 0.5;">
+<strong>2</strong></div>
+<div></div>
+</div>
+</td>          
+<td> <div class="d-flex justify-content-between">
+<div class="text-primary" style="opacity: 0.5;">
+<strong>3</strong></div>
+<div></div>
+</div>
+</td>
+</tr>
+
 </body>
 </html>
