@@ -11,7 +11,7 @@
 
   <style>
     * { font-family: 'Noto Sans KR', sans-serif; }
-    a {text-decoration: none;}
+    a {text-decoration: none; color: inherit;}
     th { text-align:center; width:14.28%; }
     td { height: 120px; }
   </style>
@@ -110,7 +110,7 @@
                   <td>
                     <div class="d-flex justify-content-between">
                     <div class="text-danger" style="opacity: 0.5;">
-                    <strong>30</strong></div>
+                    <strong><a data-bs-toggle="modal" href="#schedule">30</a></strong></div>
                   <div></div>
                 </div>
                 </td>
@@ -333,7 +333,6 @@
         </div>
         </td>
         </tr>
-        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#schedule">Modal</button>
         </table>
         </div>
       </div>
@@ -353,16 +352,60 @@
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title">일정 추가</h5></div>
-        <div class="modal-body">
 
+        <div class="modal-body">
+          <form action="/schedule" method="get">
+          <div class="my-2">
+          <label for="title" class="form-label">일정명
+            <label class="form-check-label ms-5">
+              <input class="form-check-input" type="checkbox" name="importance" checked><span class="ms-2">중요</span>
+            </label>
+          </label>
+          <input type="text" class="form-control" name="title" id="title" value="발표회" required>
+        </div>
+        <div class="row">
+          <div class="col-8">
+            <div class="my-2">
+            <label for="s-date" class="form-label">시작일</label>
+            <input type="date" class="form-control" name="s-date" id="s-date" value="2024-07-11" required>
+          </div>
+          </div>
+          <div class="col-4">
+            <div class="my-2">
+              <label for="s-time" class="form-label">시작시간</label>
+              <input type="time" class="form-control" name="s-time" id="s-time" value="14:00" required>
+          </div>
+          </div>
+        <div class="row">
+        </div>
+        <div class="col-8">
+          <div class="my-2">
+          <label for="e-date" class="form-label">종료일</label>
+          <input type="date" class="form-control" name="e-date" id="e-date" value="2024-07-11">
+        </div>
+        </div>
+        <div class="col-4">
+          <div class="my-2">
+            <label for="e-time" class="form-label">종료시간</label>
+            <input type="time" class="form-control" name="e-time" id="e-time" value="15:00">
+            </div>
+            </div>
+            <div class="my-2">
+              <label for="place" class="form-label">장소</label>
+              <input type="text" class="form-control" name="place" id="place" value="401호" required>
+              <div class="my-2">
+                <label for="memo" class="form-label">메모</label>
+                <input type="text" class="form-control" name="memo" id="memo" value="첫 번째">
+              </div>
+            </div>
+        </form>
           <div class="modal-footer">
-          <button type="submit" class="btn btn-primary">제출</button>
-          <button type="reset" class="btn btn-secondary" data-bs-dismiss="modal">종료</button>
+          <button type="submit" class="btn btn-primary me-1">제출</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">종료</button>
           </div>
         </div>
       </div>
     </div>
   </div>
-
 </body>
 </html>
