@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://kit.fontawesome.com/7c8cf3092b.js" crossorigin="anonymous"></script>
+    <title>기술명 입력</title>
+</head>
+<body>
+  <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
+    <div class="container-fluid">
+      <ul class="navbar-nav">
+        <a class="navbar-brand mx-5" href="#">
+          <img src="./img/logo.png" alt="Logo" style="height: 36px;">
+        </a>
+        <li class="nav-item ms-3">
+          <a class="nav-link" href="#" style="color: white;"><i class="fa-solid fa-table-list"></i> 게시판</a>
+        </li>
+        <li class="nav-item ms-3">
+          <a class="nav-link" href="#" style="color: white;"><i class="fa-solid fa-calendar-days"></i> 일정표</a>
+        </li>
+        <li class="nav-item ms-3">
+          <a class="nav-link" href="#" style="color: white;"><i class="fa-solid fa-right-from-bracket"></i> 로그아웃</a>
+        </li>
+      </ul>
+      <span class="navbar-text me-5" style="color: white;">휴먼교육센터님 환영합니다.</span>
+    </div>
+  </nav>
+
+  <div class="container-fluid" style="margin-top: 100px; text-align: center;">
+  <button class="btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#chanprofile" 
+  style="background-color:black; color: aliceblue;">
+    프로필 열기
+  </button>
+
+  <div class="offcanvas offcanvas-start" id="chanprofile">
+    <div class="offcanvas-header">
+      <h1 class="offcanvas-title">프로필</h1>
+      <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"></button>
+    </div>
+    <div class="offcanvas-body">
+      <img src="./img/cat1.avif" alt="샘플" style="width: 50%;"><br><br>
+      <span>오늘의 상태 메세지를 이 자리에 적습니다.</span><br>
+      <i class="fa-solid fa-envelope"></i> onevision93@naver.com<br>
+  <i class="fa-brands fa-github"></i>
+  <a href="https://github.com/LC-coder33" target="_blank" style="color: inherit; text-decoration: none;">Chan Lee</a><br>
+  <i class="fa-solid fa-location-dot"></i> 용인시 기흥구<br>
+  <button type="button" class="btn btn-sm btn-outline-secondary mt-2" data-bs-dismiss="offcanvas">나가기</button>
+    </div>
+  </div>
+
+  <nav class="navbar navbar-expand-sm bg-light fixed-bottom">
+    <div class="container-fluid justify-content-center">
+      <span class="navbar-text">
+        Copyright &copy; 2002-2024 CK World Corp. All rights reserved.
+      </span>
+    </div>
+  </nav>
+
+</div>
+</body>
+</html>
