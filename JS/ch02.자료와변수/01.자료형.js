@@ -34,6 +34,7 @@ console.log(a + b, a-b, a / b, b % a);
 let pi = 0.314159e1;            //0.314159 * 10 **1 / e1=10의 1승
 let f = 1.3e-8;                 //1.3 * 10 **-8
 console.log(pi, f);
+console.log(2 ** 10, 2**20, 2**30);     // 1Kilobyte, 2Megabyte, 1Gigabyte
 
 // 3. 논리형(Boolean) - true, false
 // 비교 연산
@@ -48,3 +49,5 @@ console.log(x >0 && x < 8);
 
 // 자료형 검사
 console.log(typeof hello, typeof(a), typeof(true));
+
+let y = a + -b;     // 이와 같은 경우엔   + : binary operator  - : unary operator 이다
