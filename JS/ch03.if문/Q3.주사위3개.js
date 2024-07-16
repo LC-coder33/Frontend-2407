@@ -13,7 +13,24 @@ else if(first == third)
 dice = 1000 + first * 100;
 else if(second == third)
 dice = 1000 + second * 100;
-else
-dice = Math.max(first, second, third) * 100;
+else {
+    let maxDice = first > second ? first : second;
+    maxDice = maxDice > third ? maxDice : third;
+    dice = maxDice * 100
+    }
 
-console.log(`${first} ${second} ${third} ${dice}원`);
+// dice = Math.max(first, second, third) * 100;
+
+console.log(`${first} ${second} ${third} ==> ${dice}원`);
+
+// Refactoring
+if (first == second && first == third && second == third)
+    dice = first * 1000 + 10000;
+    else if(first == second || first == third)
+    dice = 1000 + first * 100;
+    else if(second == third)
+    dice = 1000 + second * 100;
+    else
+    dice = Math.max(first, second, third) * 100;
+    
+    console.log(`${first} ${second} ${third} ==> ${dice}원`);
