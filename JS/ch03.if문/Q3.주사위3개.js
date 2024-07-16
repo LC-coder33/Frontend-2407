@@ -3,6 +3,7 @@
 let first = Math.ceil(Math.random() * 6); 
 let second = Math.ceil(Math.random() * 6); 
 let third = Math.ceil(Math.random() * 6); 
+let dice = 0;
 
 if (first == second && first == third && second == third)
 dice = first * 1000 + 10000;
