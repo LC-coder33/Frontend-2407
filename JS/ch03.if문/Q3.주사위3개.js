@@ -34,3 +34,9 @@ if (first == second && first == third && second == third)
     dice = Math.max(first, second, third) * 100;
     
     console.log(`${first} ${second} ${third} ==> ${dice}원`);
+
+    const readline = require("readline");
+const rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout
+});
