@@ -12,6 +12,7 @@ for (let i = 1; i <= 10; i++) {
 }
 console.log(sumOdd);
 
+/*
 for (let i = 1; i <= 5; i++) {
     let line = '';
     for (let k = 1; k <= 5; k++) {
@@ -20,6 +21,15 @@ for (let i = 1; i <= 5; i++) {
         line += k + ' ';
         if (k == i)
             break;
+    }
+    console.log(line);
+}
+    */
+
+for (let i = 1; i <= 5; i++) {
+    let line = '';
+    for (let k = 1; k <= 5; k++) {
+        line += k + ' ';
     }
     console.log(line);
 }
