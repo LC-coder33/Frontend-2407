@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>나이 계산</title>
+    <style>
+        input, button { padding: 5px; }
+    </style>
+    <script>
+        function bDate(bYear, bMonth, bDay) {
+            const today = new Date();
+            let tYear = Number(today.getFullYear());
+            let tMonth = Number(today.getMonth()+1);
+            let tDay = Number(today.getDate());
+            let age = 0;
+            if (tMonth < bMonth) {
+            return age = tYear - bYear - 1;
+            }
+            else if (tMonth > bMonth) {
+            return age = tYear - bYear;
+            }
+            else if (tDay >= bDay) {
+            return age = tYear- bYear;}
+            else { 
+            return age = tYear - bYear -1;
+                }
+            }
+
+        function checkbDate () {
+    let bYear = Number(document.getElementById('bYear').value);
+    let bMonth = Number(document.getElementById('bMonth').value);
+    let bDay = Number(document.getElementById('bDay').value);
+    const age = bDate(bYear, bMonth, bDay);
+    document.getElementById('age').innerHTML = '<strong>' + age + '세' + '</strong>';
+    }
+</script>
+</head>
+<body style="margin: 40px;">
+    <h3>나이 계산</h3>
+    <hr>
+    <input type="number" id="bYear" placeholder="확인할 년도를 입력하세요.">
+    <input type="number" id="bMonth" placeholder="확인할 개월을 입력하세요.">
+    <input type="number" id="bDay" placeholder="확인할 날짜를 입력하세요.">
+    <button onclick="checkbDate()">확인</button>
+    <hr>
+    <div id="age"></div>
+</body>
+</html>
