@@ -47,3 +47,42 @@
     <div id="age"></div>
 </body>
 </html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>사분면</title>
+    <style>
+        input, button { padding: 5px; }
+    </style>
+    <script>
+        function getQuadrant (x, y) {}
+        if (x>0 && y>0)
+            quadrant = '1사분면'
+        else if (x<0 && y>0)
+            quadrant = '2사분면'
+        else if (x<0 && y<0)
+            quadrant = '3사분면'
+        else if (x>0 && y<0)
+            quadrant = '4사분면'
+        else
+            quadrant = '좌표축'
+
+        let quadrant ='';
+
+            console.log(x, y, quadrant);
+    </script>
+</head>
+<body style="margin: 40px;">
+    <h3>사분면</h3>
+    <hr>
+    <input type="number" id="xaxis" placeholder="확인할 x를 입력하세요.">
+    <input type="number" id="yaxis" placeholder="확인할 y을 입력하세요.">
+    <button onclick="checkbDate()">확인</button>
+    <hr>
+    <div id="age"></div>
+    
+</body>
+</html>
