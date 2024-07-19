@@ -45,3 +45,14 @@ console.log(space.trim().substring(0,5).toUpperCase());
 let sample= 'A quick brown fox';
 console.log(sample.replace('A','This'));
 console.log(sample.replace('o', 'O'));
+
+// 정규표현식(Regular Expression)
+sample = 'A quick brown fox - 3 - 갈색의 재빠른 여우 the lazy dog = 5 = 게으른 개';
+// 영문자와 공백만 남기고 모두 지움
+console.log(sample.replace(/[^A-Z a-z]/g, ''));                     // A quick brown fox       the lazy dog
+// 한글과 공백만 남기고 모두 지움
+console.log(sample.replace(/[^가-힣ㄱ-ㅎ ㅏ-ㅣ]/g, ''));            //        갈색의 재빠른 여우       게으른 개
+// 숫자만 남기고 모두 지움
+console.log(sample.replace(/[^0-9]/g, ''));                         // 35
+// 숫자, 특수기호만 남기고 모두 지움
+console.log(sample.replace(/[^0-9-=]/g, ''));                       // -3-=5=
