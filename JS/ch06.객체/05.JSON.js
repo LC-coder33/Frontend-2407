@@ -15,3 +15,13 @@ console.log(internalForm);
 
 let personArray = [person, {name: 'Maria', age: 25, job: '디자이너'}];
 console.log(JSON.stringify(personArray));
+console.log(personArray);
+
+// comparator                                       // (a, b) => a - b   오름차순
+                                                    // (a, b) => b - a   내림차순
+p = [
+    { id: 1, name: 'James', age: 27, job: '프로그래머'},
+    { id: 2, name: 'Maria', age: 25, job: '디자이너'}
+]
+p.sort((a,b) => a.age - b.age)
+console.log(p);
