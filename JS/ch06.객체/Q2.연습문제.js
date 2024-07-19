@@ -24,11 +24,11 @@ console.log(countArr);
 // 2. C:/Workspace/FrontEnd/JS/ch06.객체/Q2.연습문제.js
 //    위 문자열에서 파일명 Q2.연습문제.js 만 분리하세요.
 let practice = 'C:/Workspace/FrontEnd/JS/ch06.객체/Q2.연습문제.js'
+console.log(practice.substring(33));
+
 let path = 'C:/Workspace/FrontEnd/JS/ch06.객체/Q2.연습문제.js';
 let index = path.lastIndexOf('/') + 1;
 console.log(path.substring(index));
-
-console.log(practice.substring(33));
 
 
 // 3. 두개의 세자리수를 곱해서 나온 결과가 palindrome일 때
