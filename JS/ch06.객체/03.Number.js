@@ -15,3 +15,7 @@ console.log(Math.pow(2, 53) - 1);
 console.log(Number.NEGATIVE_INFINITY, Number.POSITIVE_INFINITY);
 
 // NaN (Not a Number)
+let a = parseInt('string');
+console.log(Number.isNaN(a));
+
+console.log(Number.isFinite(9007199254740991), Number.isFinite(Infinity));
