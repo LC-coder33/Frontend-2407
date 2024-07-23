@@ -21,6 +21,8 @@
             const [left, up, right, down] = [37, 38, 39, 40];
             document.body.addEventListener('keydown', event => {
                 switch(event.keyCode) {
+                    case 0x48 :                     // h
+                        x -= 1; break;
                     case left:
                         x -= 1; break;
                     case up:
