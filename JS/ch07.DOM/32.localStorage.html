@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Local Storage</title>
+    <style>
+        input, button, div { padding: 5px; margin: 5px; }
+    </style>
     <script>
         window.onload = () => {
             localStorage.setItem('fruit', '복숭아');
@@ -29,12 +32,43 @@
             ];
             localStorage.setItem('todoList', JSON.stringify(todoList));
             let inputList = JSON.parse(localStorage.getItem('todoList'));
-            console.log(inputList);
+
+            const result = document.getElementById('result');
+            for (let todo of inputList) {
+                const item = document.createElement('div');
+                const checkbox = document.createElement('input');
+                const text = document.createElement('span');
+                const button = document.createElement('button');
+
+                // item 객체 조작 후 todo-list에 매단다
+                item.setAttribute('data-key', todo.key);         // <div data-key="0">
+                item.appendChild(checkbox);
+                item.appendChild(text);
+                item.appendChild(button);
+                result.appendChild(item);
+
+                checkbox.type = 'checkbox';             // <input type="checkbox">
+                checkbox.addEventListener('change', e => {
+                    item.style.textDecoration = event.target.checked ? 'line-through' : ''
+                });
+                checkbox.checked = todo.flag;
+                if(todo.flag)
+                    item.style.textDecoration = 'line-through';
+
+                text.innerHTML = todo.name;
+                // button 조작
+                button.innerText = '제거하기';
+                button.addEventListener('click', () => {
+                    removeToDo(todo.key);
+                });
+            }
         }
     </script>
 </head>
-<body>
+<body style="margin: 40px;">
     <h1></h1>
     <h1 id="obj"></h1>
+    <hr>
+    <div id="result"></div>
 </body>
 </html>
