@@ -17,7 +17,7 @@ console.log(dice());
 function print(a) {
     console.log(a);
 }
-print('반환값이 없는 함수')
+print('반환값이 없는 함수');
 
 // 4. 매개변수도 없고 반환값도 없눈 함수
 var globalVar = 0;
