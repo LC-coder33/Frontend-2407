@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>반복문</title>
+    <script
+    src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(() => {
+            let headers = $('#header');
+            let originalText = headers.text();
+
+            $('#changeTextButton').click(() => {
+                headers.html('자바스크립트로 변경<br> 원래는 "' + originalText + '" 이었습니다.');
+            });
+
+            $('#escapeTextButton').click(() => {
+                headers.html('i 태그입니다.');
+            });
+        });
+    </script>
+</head>
+<body style="margin: 40px">
+    <h1 id="header">Header 1</h1>
+    <button id="changeTextButton">문자 변경</button>
+    <button id="escapeTextButton">Escape 문자 변경</button>
+</body>
+    
