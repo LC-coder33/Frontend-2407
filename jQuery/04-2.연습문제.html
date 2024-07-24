@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>반복문</title>
+    <script
+    src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function() {
+            $('#handler').click(() => {
+                $('h1').css('color', 'red');
+                $('#body1 > h1:nth-child(1)').css('backgroundColor', 'yellow');
+                $('.header1').css('backgroundColor', 'aqua');
+                $('#header1').text('From Javascript');
+                $('body').css('fontSize', '2rem');
+            });
+        })
+    </script>
+</head>
+<body style="margin: 40px" id="body1">
+    <h1>Header No.1</h1>
+    <h1 class="header1">Header No.2</h1>
+    <h1 id="header1">Header No.3</h1>
+    <h1 class="header1">Header No.4</h1>
+    <button id="handler">실행</button>
+</body>
+    
