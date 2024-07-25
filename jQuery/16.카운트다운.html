@@ -21,6 +21,19 @@
         }
         $(document).ready(() => {
             disp(count--);
+            let si = setInterval(() => {
+                hide();
+                if (count!= 0)
+                    disp(count--);
+                else {
+                    $('<h3></h3>')
+                        .text(`결과는 ${Math.ceil(Math.random() * 6)} 입니다.`)
+                        .appendTo('#result')
+                }
+            }, 1000);
+            setTimeout(() => {
+                clearInterval(si);
+            }, 3100);
         });
     </script>
 </head>
