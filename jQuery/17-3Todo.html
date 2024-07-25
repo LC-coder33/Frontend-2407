@@ -21,18 +21,24 @@
                     return;
                 }
                 const key = keyCount++;
-                const item = $('<div></div>').attr('data-key', key);
-                const checkbox = $('<input>').attr('type', 'checkbox').on('change', function() {
-                    item.css('textDecoration', event.target.checked ? 'line-through' : '');
-                });
-                const text = $('<span></span>').text(input.val().trim());
-                const button = $('<button>제거하기</button>').on('click', () => {
-                    removeToDo(key);
-                });
+                const item = $('<div></div>');
+                const checkbox = $('<input>');
+                const text = $('<span></span>');
+                const button = $('<button>제거하기</button>');
                 
-                    item.append(checkbox).append(text).append(button);
+                    item.append(checkbox)
+                        .append(text)
+                        .append(button);
                     todoList.append(item);
 
+                    item.attr('data-key', key);
+                    checkbox.attr('type', 'checkbox').on('change', function() {
+                        item.css('textDecoration', event.target.checked ? 'line-through' : '');
+                    })
+                    text.text(input.val().trim());
+                    button.on('click', () => {
+                        removeToDo(key);
+                    });
                     input.val('');
             };
 
