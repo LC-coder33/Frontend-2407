@@ -36,8 +36,7 @@
                         item.css('textDecoration', event.target.checked ? 'line-through' : '');
                     })
                     text.text(input.val().trim());
-                    button.on('click', () => {
-                        removeToDo(key);
+                    button.on('click', () => { removeToDo(key); 
                     });
                     input.val('');
             };
@@ -46,7 +45,6 @@
                 const item =$(`[data-key="${key}"]`);
                 item.remove();
             }
-
 
             addButton.on('click',addToDo);
             input.on('keyup', (e) => {
