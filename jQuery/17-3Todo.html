@@ -23,7 +23,7 @@
                 const key = keyCount++;
                 const item = $('<div></div>').attr('data-key', key);
                 const checkbox = $('<input>').attr('type', 'checkbox').on('change', function() {
-                    item.css('textDecoration', this.checked ? 'line-through' : '');
+                    item.css('textDecoration', event.target.checked ? 'line-through' : '');
                 });
                 const text = $('<span></span>').text(input.val().trim());
                 const button = $('<button>제거하기</button>').on('click', () => {
