@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>디지털 시계 그래픽</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <style>
+        img { width: 100px; }
+    </style>
+    <script>
+        function twoDigit(num) {
+            return num < 10 ? '0' + num : String(num); 
+        }
+        function myDate(now) {
+            // const week = '일월화수먹금토'.split('');     // 공백으로 분리 후 배열이 됨
+            const week = ['일','월','화','수','목','금','토']
+            return `${now.getFullYear()}-${twoDigit(now.getMonth() + 1)}-${twoDigit(now.getDate())}(${week[now.getDay()]})`
+        }        
+        function myTime(now) {
+            return `${twoDigit(now.getHours())}:${twoDigit(now.getMinutes())}:${twoDigit(now.getSeconds())}`;
+        }
+        $(document).ready(() => {
+            setInterval(() => {
+                let now = new Date();
+                let dateStr = myDate(now);
+                $('#date').html(dateStr);
+
+                let timeStr = myTime(now);
+                for( let i =0; i < timeStr.length; i++) {
+                    if ( i == 2 || i == 5)
+                    continue;
+                $(`#t${i}`).attr('src', `../JS/img/${timeStr[i]}.svg`);
+                }
+            }, 1000);
+        });
+    </script>
+</head>
+<body style="margin: 40px">
+    <h1 id="date"></h1>
+    <hr><br>
+    <h1 id="time"></h1>
+    <img id="t0">
+    <img id="t1">
+    <img src="../JS/img/Colon.jpg">
+    <img id="t3">
+    <img id="t4">
+    <img src="../JS/img/Colon.jpg">
+    <img id="t6">
+    <img id="t7">
+</body>
+</html>
