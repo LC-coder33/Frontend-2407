@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>디지털 시계 그래픽</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <style>
+        input, button, div { padding: 5px; margin: 5px; }
+    </style>
+    <script>
+        $(document).ready(() => {
+            const input = $('#ToDo');
+            const addButton = $('#add-button');
+            const todoList = $('#ToDo-list');
+
+            let keyCount = 0;
+
+            const addToDo = () => {
+                if (input.val().trim() === '') {
+                    return;
+                }
+                const key = keyCount++;
+                const item = $('<div></div>').attr('data-key', key);
+                const checkbox = $('<input>').attr('type', 'checkbox').on('change', function() {
+                    item.css('textDecoration', this.checked ? 'line-through' : '');
+                });
+                const text = $('<span></span>').text(input.val().trim());
+                const button = $('<button>제거하기</button>').on('click', () => {
+                    removeToDo(key);
+                });
+                
+                    item.append(checkbox).append(text).append(button);
+                    todoList.append(item);
+
+                    input.val('');
+            };
+
+            const removeToDo = (key) => {
+                const item =$(`[data-key="${key}"]`);
+                item.remove();
+            }
+
+
+            addButton.on('click',addToDo);
+            input.on('keyup', (e) => {
+                if (e.code === 'Enter')
+                addToDo();
+        });
+    });
+    </script>
+</head>
+<body style="margin: 40px;">
+    <h1>할 일 목록</h1>
+    <input type="text" id="ToDo">
+    <button id="add-button">추가하기</button>
+    <div id="ToDo-list">
+    </div>
+</body>
+</html>
