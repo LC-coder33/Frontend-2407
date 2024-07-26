@@ -17,33 +17,33 @@
     <script>
         window.onload = () => {
             const ctx = document.getElementById('myChart');
-            let xValues = [50, 60, 70, 80, 90, 100, 110, 120, 130, 140, 150];
-            let yValues = [7, 8, 8, 9, 9, 9, 10, 11, 14, 14, 15];
+            let myData = [];
+            for (let i = 0; i < 100; i++) {
+                let xVal = Math.random()*120 + 40;
+                let yVal = Math.random()*120 + 40;
+                myData.push({x: xVal, y: yVal});
+            }
 
             new Chart(ctx, {
-                type: 'line',
+                type: 'scatter',
                 data: {
-                    labels: xValues,
                     datasets: [{
-                        fill: false,
-                        lineTension: 0.5,
-                        backgroundColor: 'rgba(0, 0, 255, 1.0)',
-                        borderColor: 'rgba(0, 0, 255, 0.1)',
-                        data: yValues
+                        label: '내가 만든 데이터',
+                        pointRadius: 8,
+                        pointBackgroundColor: 'rgb(100,230,245)',
+                        data: myData
                     }]
                 },
                 options: {
                     scales: {
-                        
-                        y: {
-                        beginAtZero: true
-                    }
+                        xAxes: [{ticks: {min: 40, max: 160}}],
+                        yAxes: [{ticks: {min: 6, max: 16}}]
                     },
                     plugins: {
-                        legend: {display: false},
+                        legend: {display: true},
                         title: {
                             display: true,
-                            text: '선 그래프',
+                            text: '내가 만든 산점도',
                             padding: {top: 10, bottom: 20},
                             font: {size: 20}
                         }
