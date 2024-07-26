@@ -11,9 +11,9 @@
 
             const appendDocument = () => {
                 for (let i = 0; i < 20; i++) {
+                    scrollnumber++
                     $('<h1></h1>').text(`${scrollnumber}번째 무한 스크롤`).appendTo('body')
-                scrollnumber++;
-                }
+                };
             }
             appendDocument();
 
