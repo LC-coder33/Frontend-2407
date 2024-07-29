@@ -38,7 +38,7 @@
             let infowindow = new kakao.maps.InfoWindow({
                 content : '<div style="padding:5px;">Hello World!</div>'
             });
-            // 마우스 오버 이벤트
+            // 위의 인포 윈도우 내용을 보여주는 마우스 오버 이벤트
             kakao.maps.event.addListener(marker, 'mouseover', () => {
                 infowindow.open(map, marker);
             });
