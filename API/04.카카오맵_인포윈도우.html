@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>카카오 맵 Marker</title>
+    <title>카카오 맵 Marker, InfoWindow</title>
     <script src="key.js"></script>
     <script>
         window.onload = () => {
@@ -15,41 +15,30 @@
                 });
             };
             document.head.appendChild(kakaoScript);
-
-            let roadBaseUrl = 'https://business.juso.go.kr/addrlink/addrLinkApi.do';
-            let kakaoBaseUrl = 'https://dapi.kakao.com/v2/local/search/address.json';
-            let params1 = 'currentPage=1&countPerPage=5';
-            let params2 = `keyword=${encodeURIComponent('수원시청')}`;       // 한글은 반드시 인코딩해주어야 함
-            let params3 = `confmKey=${roadAddrKey}&resultType=json`;
-            let roadUrl = `${roadBaseUrl}?${params1}&${params2}&${params3}`;
-        };
-
+        }
         function initializeMap() {
-            let container = document.getElementById('map'); 
+            let container = document.getElementById('map');
             let position = new kakao.maps.LatLng(33.450701, 126.570667);
-            let options = {
-                center: position,
+            let options = { 
+                center: position, 
                 level: 3 
             };
-
-            // 맵 생성
             let map = new kakao.maps.Map(container, options); 
 
             // 마커 생성
             let marker = new kakao.maps.Marker({
                 map: map,
-                position: position
-            }); 
+                position: position              // position 으로 해도 됨
+            });
 
             // 인포 윈도우 생성
             let infowindow = new kakao.maps.InfoWindow({
                 content : '<div style="padding:5px;">Hello World!</div>'
             });
-            // 위의 인포 윈도우 내용을 보여주는 마우스 오버 이벤트
+            // 마우스오버 이벤트, 마우스아웃 이벤트 등록
             kakao.maps.event.addListener(marker, 'mouseover', () => {
                 infowindow.open(map, marker);
             });
-            // 마우스 아웃 이벤트
             kakao.maps.event.addListener(marker, 'mouseout', () => {
                 infowindow.close();
             });
@@ -57,6 +46,6 @@
     </script>
 </head>
 <body style="margin: 40px;">
-    <div id="map" style="width:600px;height:400px;"></div>
+    <div id="map" style="width:600px; height:400px;"></div>
 </body>
 </html>

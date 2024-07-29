@@ -7,9 +7,9 @@
     <script src="key.js"></script>
     <script>
         window.onload = () => {
-            let base_url = 'https://dapi.kakao.com/v2/local/search/address.json';
+            let baseUrl = 'https://dapi.kakao.com/v2/local/search/address.json';
             let addr = '경기도 수원시 영통구 도청로 30 (이의동)';
-            let url = `${base_url}?query=${encodeURIComponent(addr)}`;
+            let url = `${baseUrl}?query=${encodeURIComponent(addr)}`;
 
             // 헤더: Authorization: KakaoAK ${REST_API_KEY}
             let header = { Authorization: `KakaoAK ${kakaoRestKey}` };
@@ -37,5 +37,6 @@
         <li>도로명주소: 경기도 수원시 영통구 도청로 30 (이의동)</li>
         <li>위도: <span id="lat"></span></li>
         <li>경도: <span id="lon"></span></li>
+    </ul>
 </body>
 </html>
