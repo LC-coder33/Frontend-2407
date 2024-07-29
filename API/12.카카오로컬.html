@@ -18,6 +18,10 @@
                 .then(response => response.json())
                 .then(result => {
                     console.log(result);
+                    let lat = result.documents[0].y;
+                    let lon = result.documents[0].x;
+                    document.getElementById('lat').innerHTML = lat;
+                    document.getElementById('lon').innerHTML = lon;
                 })
                 .catch(error => {
                     console.log(error);
