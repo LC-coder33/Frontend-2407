@@ -16,17 +16,24 @@
                 kakao.maps.load(() => { });
             };
         document.head.appendChild(kakaoScript);
-        
-        let place = 'input';
-        }
+        };
 
         function handleMap() {
+            const place = document.getElementById('input').value;
+            const roadBaseUrl = 'https://business.juso.go.kr/addrlink/addrLinkApi.do';
+            const kakaoBaseUrl = 'https://dapi.kakao.com/v2/local/search/address.json';
+            const params1 = 'currentPage=1&countPerPage=5';
+            const params2 = `keyword=${encodeURIComponent(place)}`;
+            const params3 = `confmKey=${roadAddrKey}&resultType=json`;
+            const roadUrl = `${roadBaseUrl}?${params1}&${params2}&${params3}`;
+
+            document.getElementById('place').innerHTML = place;
             fetch(roadUrl)
                 .then(response => response.json())
                 .then(result => {
                     // console.log(result);
                     let roadAddr = result.results.juso[0].roadAddr;
-                    document.getElementById('place').innerHTML = roadAddr;
+                    document.getElementById('roadAddr').innerHTML = roadAddr;
 
                     let kakaoUrl = `${kakaoBaseUrl}?query=${encodeURIComponent(roadAddr)}`;
                     let header = { Authorization: `KakaoAK ${kakaoRestKey}` };
@@ -45,11 +52,9 @@
                             console.log(error);
                         });
                 });
-        
+        };
 
-        }
-
-        function drawMap() {
+        function drawMap(place, lat, lon) {
             let container = document.getElementById('map'); 
             let position = new kakao.maps.LatLng(lat, lon);
             let options = {
@@ -79,6 +84,8 @@
                 infowindow.close();
             });
         }
+        
+
     </script>
 </head>
 <body style="margin: 40px;">
