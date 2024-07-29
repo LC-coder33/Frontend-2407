@@ -3,22 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>도로명주소 API + 카카오로컬 API</title>
+    <title>임의장소 지도표시</title>
+    <style>
+        input, button { padding: 5px; }
+    </style>
     <script src="key.js"></script>
     <script>
         window.onload = () => {
-            const place = '수원시청';
-            let roadBaseUrl = 'https://business.juso.go.kr/addrlink/addrLinkApi.do';
-            let kakaoBaseUrl = 'https://dapi.kakao.com/v2/local/search/address.json';
-            let params1 = 'currentPage=1&countPerPage=5';
-            let params2 = `keyword=${encodeURIComponent(place)}`;
-            let params3 = `confmKey=${roadAddrKey}&resultType=json`;
-            let roadUrl = `${roadBaseUrl}?${params1}&${params2}&${params3}`;
-
-            const kakaoScript = document.createElement('script');
+        const kakaoScript = document.createElement('script');
             kakaoScript.src = `http://dapi.kakao.com/v2/maps/sdk.js?appkey=${kakaoJsKey}&autoload=false`;
             kakaoScript.onload = () => {
-                kakao.maps.load(() => {
+                kakao.maps.load(() => { });
+            };
+        document.head.appendChild(kakaoScript);
+        
+        let place = 'input';
+        }
+
+        function handleMap() {
             fetch(roadUrl)
                 .then(response => response.json())
                 .then(result => {
@@ -43,17 +45,16 @@
                             console.log(error);
                         });
                 });
-        });
-    };
-    document.head.appendChild(kakaoScript);
-}
-    
-        function drawMap(place, lat, lon) {
+        
+
+        }
+
+        function drawMap() {
             let container = document.getElementById('map'); 
             let position = new kakao.maps.LatLng(lat, lon);
             let options = {
                 center: position,
-                level: 3 
+                level: 4 
             };
 
             // 맵 생성
@@ -83,9 +84,12 @@
 <body style="margin: 40px;">
     <h1>도로명주소 API + 카카오로컬 API + 지도</h1>
     <hr>
-    <h3>수원시청</h3>
+    <input onchange="handleMap()" type="text" id="input" placeholder="임의의 장소를 입력하세요.">
+    <button onclick="handleMap()">지도 그리기</button>
+    <hr>
+    <h3 id="place"></h3>
     <ul>
-        <li>도로명주소: <span id="place"></span></li>
+        <li>도로명주소: <span id="roadAddr"></span></li>
         <li>위도: <span id="lat"></span></li>
         <li>경도: <span id="lon"></span></li>
     </ul>

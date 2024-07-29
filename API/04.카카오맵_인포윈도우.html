@@ -15,6 +15,13 @@
                 });
             };
             document.head.appendChild(kakaoScript);
+
+            let roadBaseUrl = 'https://business.juso.go.kr/addrlink/addrLinkApi.do';
+            let kakaoBaseUrl = 'https://dapi.kakao.com/v2/local/search/address.json';
+            let params1 = 'currentPage=1&countPerPage=5';
+            let params2 = `keyword=${encodeURIComponent('수원시청')}`;       // 한글은 반드시 인코딩해주어야 함
+            let params3 = `confmKey=${roadAddrKey}&resultType=json`;
+            let roadUrl = `${roadBaseUrl}?${params1}&${params2}&${params3}`;
         };
 
         function initializeMap() {
