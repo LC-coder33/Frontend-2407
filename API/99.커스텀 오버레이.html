@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>비동기 함수로 지도 그리기</title>
+    <title>마커 및 인포윈도우 커스텀</title>
     <style>
         .info-style {
             color: white;
@@ -11,14 +11,9 @@
             text-align: center;
             padding: 5px;
             border-radius: 10px; 
-            max-width: 200px; /* 적절한 최대 너비 설정 */
-            white-space: nowrap; /* 텍스트 넘침 방지 */
-            overflow: hidden; /* 넘친 텍스트 숨기기 */
-            text-overflow: ellipsis; /* 넘친 텍스트에 '...' 표시 */
         }
     </style>
     <script src="key.js"></script>
-    <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
     <script>
         const places = ['경기도청', '수원시청', '권선구청', '영통구청', '장안구청', '팔달구청'];
         const roadBaseUrl = 'https://business.juso.go.kr/addrlink/addrLinkApi.do';
@@ -110,7 +105,7 @@
     </script>
 </head>
 <body style="margin: 40px;">
-    <h1>지도에 여러곳 표시하기</h1>
+    <h1>커스텀 오버레이</h1>
     <hr>
     <ul id="list">
     </ul>
