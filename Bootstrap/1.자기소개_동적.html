@@ -11,6 +11,8 @@
     <script src="key.js"></script>
 	  <script src="apilib.js"></script>
     <script src="residencehome.js"></script>
+    <script src="runningman.js"></script>
+    <script src="showandhide.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Gothic+A1&display=swap" rel="stylesheet">
@@ -33,32 +35,6 @@
             display:none;
           }
     </style>
-
-<script>
-  $(document).ready(() => {
-      let frames = [];
-      for (let i = 0; i <= 14; i++)
-      frames.push(`../jQuery/human/${i}.png`)
-
-  let count = 0;
-  setInterval(() => {
-      $('#runningImage').attr('src', frames[count++ % frames.length])
-  }, 1000/30);        // 30 frame per second(FPS)
-  })
-</script>
-
-<script>
-  $(document).ready(() => {
-    $('#hide').click(() => {
-      $('#favoritefood1').hide();
-      $('#show').show();
-    });
-    $('#show').click(() => {
-      $('#favoritefood1').show();
-      $('#show').hide();
-    });
-  });
-</script>
 </head>
 
 <body style="background-color: white;">
