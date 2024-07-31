@@ -4,13 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>비동기 함수로 지도 그리기</title>
+    <style>
+        .info-style {
+            color: white;
+            background: black;
+            text-align: center;
+            padding: 5px;
+            border-radius: 10px; 
+            max-width: 200px; /* 적절한 최대 너비 설정 */
+            white-space: nowrap; /* 텍스트 넘침 방지 */
+            overflow: hidden; /* 넘친 텍스트 숨기기 */
+            text-overflow: ellipsis; /* 넘친 텍스트에 '...' 표시 */
+        }
+    </style>
     <script src="key.js"></script>
+    <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
     <script>
         const places = ['경기도청', '수원시청', '권선구청', '영통구청', '장안구청', '팔달구청'];
         const roadBaseUrl = 'https://business.juso.go.kr/addrlink/addrLinkApi.do';
         const kakaoBaseUrl = 'https://dapi.kakao.com/v2/local/search/address.json';
         const params1 = 'currentPage=1&countPerPage=5';
         const params3 = `confmKey=${roadAddrKey}&resultType=json`;
+
         window.onload = () => {
             const kakaoScript = document.createElement('script');
             kakaoScript.src = `http://dapi.kakao.com/v2/maps/sdk.js?appkey=${kakaoJsKey}&autoload=false`;
@@ -30,10 +45,10 @@
                         li.innerHTML = text;
                         ul.appendChild(li);
                     }
-                    drawMaps(coords, sumLat/coords.length, sumLon/coords.length);
+                    drawMaps(coords, sumLat / coords.length, sumLon / coords.length);
                 });
             };
-        document.head.appendChild(kakaoScript);
+            document.head.appendChild(kakaoScript);
         }
 
         async function getCoord(place) {
@@ -51,31 +66,44 @@
                 result = await response.json();
                 let lat = parseFloat(result.documents[0].y);
                 let lon = parseFloat(result.documents[0].x);
-                return {place, roadAddr, lat, lon};
-            } catch(error) {
+                return { place, roadAddr, lat, lon };
+            } catch (error) {
                 console.log(error);
-                return {place, roadAddr:null, lat:null, lon:null};
+                return { place, roadAddr: null, lat: null, lon: null };
             }
         }
 
         function drawMaps(coords, centerLat, centerLon) {
-            let container = document.getElementById('map'); 
+            let container = document.getElementById('map');
             let center = new kakao.maps.LatLng(centerLat, centerLon);
             let map = new kakao.maps.Map(container, { center, level: 7 });
+            map.addOverlayMapTypeId(kakao.maps.MapTypeId.TRAFFIC);  
+
+            let imageSrc = './free-icon-soccer-ball-5524551.png',
+                imageSize = new kakao.maps.Size(30, 32),
+                imageOption = { offset: new kakao.maps.Point(15, 40) };
+
+            let markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize, imageOption);
 
             for (let coord of coords) {
                 let marker = new kakao.maps.Marker({
                     map: map,
+                    position: new kakao.maps.LatLng(coord.lat, coord.lon),
+                    image: markerImage
+                });
+
+                let overlay = new kakao.maps.CustomOverlay({
+                    content: `<div class="info-style">
+                        ${coord.place}<br>${coord.roadAddr}</div>`,
                     position: new kakao.maps.LatLng(coord.lat, coord.lon)
-                }); 
-                let infowindow = new kakao.maps.InfoWindow({
-                    content : `<div style="padding:5px;">${coord.place}<br>${coord.roadAddr}</div>`
                 });
+
                 kakao.maps.event.addListener(marker, 'mouseover', () => {
-                    infowindow.open(map, marker);
+                    overlay.setMap(map);
                 });
+
                 kakao.maps.event.addListener(marker, 'mouseout', () => {
-                    infowindow.close();
+                    overlay.setMap(null);
                 });
             }
         }
@@ -85,7 +113,6 @@
     <h1>지도에 여러곳 표시하기</h1>
     <hr>
     <ul id="list">
-
     </ul>
     <div id="map" style="width:800px; height:600px; margin-top: 20px;"></div>
 </body>

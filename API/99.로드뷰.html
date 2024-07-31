@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>비동기 함수로 지도 그리기</title>
+    <style>
+        .info-style {
+            color: white;
+            background: black;
+            text-align: center;
+            padding: 5px;
+            border-radius: 10px; 
+            max-width: 200px; /* 적절한 최대 너비 설정 */
+            white-space: nowrap; /* 텍스트 넘침 방지 */
+            overflow: hidden; /* 넘친 텍스트 숨기기 */
+            text-overflow: ellipsis; /* 넘친 텍스트에 '...' 표시 */
+        }
+    </style>
+    <script src="key.js"></script>
+    <script>
+        const places = ['경기도청', '수원시청', '권선구청', '영통구청', '장안구청', '팔달구청'];
+        const roadBaseUrl = 'https://business.juso.go.kr/addrlink/addrLinkApi.do';
+        const kakaoBaseUrl = 'https://dapi.kakao.com/v2/local/search/address.json';
+        const params1 = 'currentPage=1&countPerPage=5';
+        const params3 = `confmKey=${roadAddrKey}&resultType=json`;
+
+        window.onload = () => {
+            const kakaoScript = document.createElement('script');
+            kakaoScript.src = `http://dapi.kakao.com/v2/maps/sdk.js?appkey=${kakaoJsKey}&autoload=false`;
+            kakaoScript.onload = () => {
+                kakao.maps.load(async () => {
+                    // 로드뷰 관련 코드
+                    let roadviewContainer = document.getElementById('roadview');
+                    let roadview = new kakao.maps.Roadview(roadviewContainer);
+                    let roadviewClient = new kakao.maps.RoadviewClient();
+                    let position = new kakao.maps.LatLng(33.450701, 126.570667);
+                    
+                    roadviewClient.getNearestPanoId(position, 50, function(panoId) {
+                        roadview.setPanoId(panoId, position); //panoId와 중심좌표를 통해 로드뷰 실행
+                    });
+
+                    // 나머지 지도 코드 (마커 등)
+                });
+            };
+            document.head.appendChild(kakaoScript);
+        }
+    </script>
+</head>
+<body style="margin: 40px;">
+    <h1>지도에 여러곳 표시하기</h1>
+    <hr>
+    <ul id="list">
+    </ul>
+    <div id="roadview" style="width:1000px; height:600px; margin-top: 20px;"></div>
+</body>
+</html>
