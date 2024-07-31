@@ -13,7 +13,7 @@
             return num < 10 ? '0' + num : String(num); 
         }
         function myDate(now) {
-            // const week = '일월화수먹금토'.split('');     // 공백으로 분리 후 배열이 됨
+            // const week = '일월화수목금토'.split('');     // 공백으로 분리 후 배열이 됨
             const week = ['일','월','화','수','목','금','토']
             return `${now.getFullYear()}-${twoDigit(now.getMonth() + 1)}-${twoDigit(now.getDate())}(${week[now.getDay()]})`
         }        
