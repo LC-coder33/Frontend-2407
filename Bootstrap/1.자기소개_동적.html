@@ -35,6 +35,14 @@
             display:none;
           }
     </style>
+    <script>
+      async function handleWeather(place) {
+        const {lat, lon} = await getCoord(place);
+        const {desc, iconUrl, temp} = await getWeather(lat, lon);
+        const html = `<img src="${iconUrl}" height="28"> <strong>${desc}</strong>, 온도: ${temp}&#8451`;
+        document.getElementById('weather').innerHTML = html;
+      }
+    </script>
 </head>
 
 <body style="background-color: white;">
